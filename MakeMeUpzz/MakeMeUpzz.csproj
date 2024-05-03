@@ -153,6 +153,7 @@
       <DependentUpon>MakeMeUpzzModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Views\HandleTransactionPage.aspx.cs">
       <DependentUpon>HandleTransactionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,7 +241,6 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Handlers\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
