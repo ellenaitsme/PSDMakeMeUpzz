@@ -97,10 +97,12 @@
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\TransactionHistoryPage.aspx" />
+    <Content Include="Views\UpdateMakeupBrandPage.aspx" />
     <Content Include="Views\ViewTransactionsReportPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\DatabaseSingleton.cs" />
     <Compile Include="Factories\MakeupBrandFactory.cs" />
@@ -153,6 +155,7 @@
       <DependentUpon>MakeMeUpzzModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MakeupRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Views\HandleTransactionPage.aspx.cs">
       <DependentUpon>HandleTransactionPage.aspx</DependentUpon>
@@ -210,6 +213,13 @@
     <Compile Include="Views\TransactionHistoryPage.aspx.designer.cs">
       <DependentUpon>TransactionHistoryPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateMakeupBrandPage.aspx.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrandPage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewTransactionsReportPage.aspx.cs">
       <DependentUpon>ViewTransactionsReportPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,7 +249,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Handlers\" />
   </ItemGroup>
   <PropertyGroup>
