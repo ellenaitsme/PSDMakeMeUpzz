@@ -12,7 +12,6 @@ namespace MakeMeUpzz.Views
 {
     public partial class ManageMakeupPage : System.Web.UI.Page
     {
-        public List<Makeup> makeup = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -27,8 +26,8 @@ namespace MakeMeUpzz.Views
         public void refreshMakeupGV()
         {
             MakeupRepository makeupRepo = new MakeupRepository();
-            makeup = makeupRepo.getAllMakeups();
-            Makeup.DataSource = makeupRepo;
+            List<Makeup> mu = makeupRepo.getAllMakeups();
+            Makeup.DataSource = mu;
             Makeup.DataBind();
         }
 
@@ -36,7 +35,7 @@ namespace MakeMeUpzz.Views
         {
             MakeupTypeRepository typeRepo = new MakeupTypeRepository();
             List<MakeupType> makeupTypes = typeRepo.getAllMakeupTypes();
-            MakeupTypes.DataSource = typeRepo;
+            MakeupTypes.DataSource = makeupTypes;
             MakeupTypes.DataBind();
         }
 
@@ -44,7 +43,7 @@ namespace MakeMeUpzz.Views
         {
             MakeupBrandRepository brandRepo = new MakeupBrandRepository();
             List<MakeupBrand> makeupBrands = brandRepo.GetMakeupBrands();
-            MakeupBrands.DataSource = brandRepo;
+            MakeupBrands.DataSource = makeupBrands;
             MakeupBrands.DataBind();
         }
 
