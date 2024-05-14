@@ -98,6 +98,8 @@
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Views\TransactionHistoryPage.aspx" />
     <Content Include="Views\UpdateMakeupBrandPage.aspx" />
+    <Content Include="Views\UpdateMakeupPage.aspx" />
+    <Content Include="Views\UpdateMakeupTypePage.aspx" />
     <Content Include="Views\ViewTransactionsReportPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -111,6 +113,8 @@
     <Compile Include="Factories\TransactionDetailFactory.cs" />
     <Compile Include="Factories\TransactionHeaderFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Handlers\MakeupBrandHandler.cs" />
+    <Compile Include="Handlers\MakeupTypeHandler.cs" />
     <Compile Include="Layout\Header.Master.cs">
       <DependentUpon>Header.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,7 +159,9 @@
       <DependentUpon>MakeMeUpzzModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\MakeupBrandRepository.cs" />
     <Compile Include="Repositories\MakeupRepository.cs" />
+    <Compile Include="Repositories\MakeupTypeRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Views\HandleTransactionPage.aspx.cs">
@@ -221,6 +227,20 @@
     <Compile Include="Views\UpdateMakeupBrandPage.aspx.designer.cs">
       <DependentUpon>UpdateMakeupBrandPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateMakeupPage.aspx.cs">
+      <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupPage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupTypePage.aspx.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupTypePage.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupTypePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ViewTransactionsReportPage.aspx.cs">
       <DependentUpon>ViewTransactionsReportPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,9 +269,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Handlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

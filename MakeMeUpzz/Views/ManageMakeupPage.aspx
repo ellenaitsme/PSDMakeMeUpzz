@@ -22,7 +22,7 @@
     <asp:GridView ID="MakeupTypes" runat="server" AutoGenerateColumns="False" OnRowDeleting="MakeupTypes_RowDeleting" OnRowEditing="MakeupTypes_RowEditing">
         <Columns>
             <asp:BoundField DataField="MakeupTypeID" HeaderText="MakeupTypeID" SortExpression="MakeupTypeID" />
-            <asp:BoundField DataField="MakeupTypes.MakeupTypeName" HeaderText="MakeupTypeName" SortExpression="MakeupTypes.MakeupTypeName" />
+            <asp:BoundField DataField="MakeupTypeName" HeaderText="MakeupTypeName" SortExpression="MakeupTypeName" />
             <asp:CommandField ButtonType="Button" HeaderText="Update" ShowCancelButton="False" ShowEditButton="True" ShowHeader="True" />
             <asp:CommandField ButtonType="Button" HeaderText="Delete" ShowDeleteButton="True" ShowHeader="True" />
         </Columns>
@@ -34,12 +34,14 @@
     <asp:GridView ID="MakeupBrands" runat="server" AutoGenerateColumns="False" AllowSorting="true" OnSorting="MakeupBrands_Sorting" OnRowEditing="MakeupBrands_RowEditing" OnRowDeleting="MakeupBrands_RowDeleting">
         <Columns>
             <asp:BoundField DataField="MakeupBrandID" HeaderText="MakeupBrandID" SortExpression="MakeupBrandID" />
-            <asp:BoundField DataField="MakeupBrands.MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrands.MakeupBrandName" />
-            <asp:BoundField DataField="MakeupBrands.MakeupBrandRating" HeaderText="MakeupBrandRating" SortExpression="MakeupBrands.MakeupBrandRating" />
+            <asp:BoundField DataField="MakeupBrandName" HeaderText="MakeupBrandName" SortExpression="MakeupBrandName" />
+            <asp:BoundField DataField="MakeupBrandRating" HeaderText="MakeupBrandRating" SortExpression="MakeupBrandRating" />
             <asp:CommandField ButtonType="Button" HeaderText="Update" ShowCancelButton="False" ShowEditButton="True" ShowHeader="True" />
             <asp:CommandField ButtonType="Button" HeaderText="Delete" ShowDeleteButton="True" ShowHeader="True" />
         </Columns>
     </asp:GridView>
+
+    <br />
 
     <asp:Button ID="InsertMakeup" runat="server" Text="Insert Makeup" />
     <asp:Button ID="InsertMakeupType" runat="server" Text="Insert Makeup Type" />
