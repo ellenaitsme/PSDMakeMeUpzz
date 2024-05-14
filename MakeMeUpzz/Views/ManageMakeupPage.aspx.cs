@@ -1,4 +1,5 @@
-﻿using MakeMeUpzz.Models;
+﻿using MakeMeUpzz.Handlers;
+using MakeMeUpzz.Models;
 using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,37 @@ namespace MakeMeUpzz.Views
         public List<Makeup> makeup = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //ntar ganti ke controller 
-
-            MakeupRepository makeupRepo = new MakeupRepository();
+            
             if (!IsPostBack)
             {
-                makeup = makeupRepo.getAllMakeups();
-                Makeup.DataSource = makeupRepo;
-                Makeup.DataBind();
-                MakeupTypes.DataSource = makeupRepo;
-                MakeupTypes.DataBind();
-                MakeupBrands.DataSource = makeupRepo;
-                MakeupBrands.DataBind();
+                refreshMakeupGV();
+                refreshMakeupTypeGV();
+                refreshMakeupBrandGV();
             }
+        }
+
+        public void refreshMakeupGV()
+        {
+            MakeupRepository makeupRepo = new MakeupRepository();
+            makeup = makeupRepo.getAllMakeups();
+            Makeup.DataSource = makeupRepo;
+            Makeup.DataBind();
+        }
+
+        public void refreshMakeupTypeGV()
+        {
+            MakeupTypeRepository typeRepo = new MakeupTypeRepository();
+            List<MakeupType> makeupTypes = typeRepo.getAllMakeupTypes();
+            MakeupTypes.DataSource = typeRepo;
+            MakeupTypes.DataBind();
+        }
+
+        public void refreshMakeupBrandGV()
+        {
+            MakeupBrandRepository brandRepo = new MakeupBrandRepository();
+            List<MakeupBrand> makeupBrands = brandRepo.GetMakeupBrands();
+            MakeupBrands.DataSource = brandRepo;
+            MakeupBrands.DataBind();
         }
 
         protected void MakeupBrands_Sorting(object sender, GridViewSortEventArgs e)
@@ -43,19 +62,22 @@ namespace MakeMeUpzz.Views
 
         protected void MakeupBrands_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            MakeupRepository makeupRepo = new MakeupRepository();
+            MakeupBrandHandler brand = new MakeupBrandHandler();
             GridViewRow row = MakeupBrands.Rows[e.RowIndex];
             String id = row.Cells[0].Text;
-            //makeupRepo.RemoveFoodById(id);
+            brand.DeleteMakeupBrand(id);
 
-            //makeup = foodRepo.GetFoods();
-            //FoodGV.DataSource = foods;
-            //FoodGV.DataBind();
+            refreshMakeupBrandGV();
         }
 
         protected void MakeupTypes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            MakeupTypeHandler type = new MakeupTypeHandler();
+            GridViewRow row = MakeupTypes.Rows[e.RowIndex];
+            String id = row.Cells[0].Text;
+            type.DeleteMakeupType(id);
 
+            refreshMakeupTypeGV();
         }
 
         protected void MakeupTypes_RowEditing(object sender, GridViewEditEventArgs e)
@@ -74,7 +96,12 @@ namespace MakeMeUpzz.Views
 
         protected void Makeup_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            MakeupRepository repo = new MakeupRepository();
+            GridViewRow row = Makeup.Rows[e.RowIndex];
+            String id = row.Cells[0].Text;
+            repo.removeMakeup(id);
 
+            refreshMakeupGV();
         }
     }
 }
