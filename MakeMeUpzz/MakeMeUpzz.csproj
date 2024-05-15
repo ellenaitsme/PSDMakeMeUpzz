@@ -91,6 +91,9 @@
     </Content>
     <Content Include="Views\HandleTransactionPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
+    <Content Include="Views\InsertMakeupBrandPage.aspx" />
+    <Content Include="Views\InsertMakeupPage.aspx" />
+    <Content Include="Views\InsertMakeupTypePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\ManageMakeupPage.aspx" />
     <Content Include="Views\OrderMakeupPage.aspx" />
@@ -177,6 +180,27 @@
     </Compile>
     <Compile Include="Views\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrandPage.aspx.cs">
+      <DependentUpon>InsertMakeupBrandPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrandPage.aspx.designer.cs">
+      <DependentUpon>InsertMakeupBrandPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupPage.aspx.cs">
+      <DependentUpon>InsertMakeupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupPage.aspx.designer.cs">
+      <DependentUpon>InsertMakeupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupTypePage.aspx.cs">
+      <DependentUpon>InsertMakeupTypePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupTypePage.aspx.designer.cs">
+      <DependentUpon>InsertMakeupTypePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>

@@ -43,7 +43,7 @@
 
     <br />
 
-    <asp:Button ID="InsertMakeup" runat="server" Text="Insert Makeup" />
-    <asp:Button ID="InsertMakeupType" runat="server" Text="Insert Makeup Type" />
-    <asp:Button ID="InsertMakeupBrand" runat="server" Text="Insert Makeup Brand" />
+    <asp:Button ID="InsertMakeup" runat="server" Text="Insert Makeup" Onclick="InsertMakeup_Click"/>
+    <asp:Button ID="InsertMakeupType" runat="server" Text="Insert Makeup Type" Onclick="InsertMakeupType_Click"/>
+    <asp:Button ID="InsertMakeupBrand" runat="server" Text="Insert Makeup Brand" onclick="InsertMakeupBrand_Click"/>
 </asp:Content>

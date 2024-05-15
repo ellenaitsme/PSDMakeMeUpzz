@@ -3,6 +3,7 @@ using MakeMeUpzz.Models;
 using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -49,7 +50,9 @@ namespace MakeMeUpzz.Views
 
         protected void MakeupBrands_Sorting(object sender, GridViewSortEventArgs e)
         {
-            MakeupBrands.Sort(MakeupBrands.Columns[2].ToString(), SortDirection.Descending);
+            //masih blm bisa sortnya 
+            //MakeupBrands.Sort(MakeupBrands.Columns[2], ListSortDirection.Descending);
+            //MakeupBrands.SortDirection = SortDirection.Descending;
         }
 
         protected void MakeupBrands_RowEditing(object sender, GridViewEditEventArgs e)
@@ -101,6 +104,21 @@ namespace MakeMeUpzz.Views
             repo.removeMakeup(id);
 
             refreshMakeupGV();
+        }
+
+        protected void InsertMakeup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/InsertMakeupPage.aspx");
+        }
+
+        protected void InsertMakeupType_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/InsertMakeupTypePage.aspx");
+        }
+
+        protected void InsertMakeupBrand_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/View/InsertMakeupBrandPage.aspx");
         }
     }
 }
