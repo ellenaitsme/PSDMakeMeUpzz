@@ -3,6 +3,7 @@ using MakeMeUpzz.Models;
 using MakeMeUpzz.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -42,14 +43,9 @@ namespace MakeMeUpzz.Views
         public void refreshMakeupBrandGV()
         {
             MakeupBrandRepository brandRepo = new MakeupBrandRepository();
-            List<MakeupBrand> makeupBrands = brandRepo.GetMakeupBrands();
+            List<MakeupBrand> makeupBrands = brandRepo.makeupBrandsDesc();
             MakeupBrands.DataSource = makeupBrands;
             MakeupBrands.DataBind();
-        }
-
-        protected void MakeupBrands_Sorting(object sender, GridViewSortEventArgs e)
-        {
-            MakeupBrands.Sort(MakeupBrands.Columns[2].ToString(), SortDirection.Descending);
         }
 
         protected void MakeupBrands_RowEditing(object sender, GridViewEditEventArgs e)
@@ -101,6 +97,21 @@ namespace MakeMeUpzz.Views
             repo.removeMakeup(id);
 
             refreshMakeupGV();
+        }
+
+        protected void InsertMakeup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/InsertMakeupPage.aspx");
+        }
+
+        protected void InsertMakeupType_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/InsertMakeupTypePage.aspx");
+        }
+
+        protected void InsertMakeupBrand_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/InsertMakeupBrandPage.aspx");
         }
     }
 }
