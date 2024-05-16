@@ -46,5 +46,43 @@ namespace MakeMeUpzz.Repositories
             db.Makeups.RemoveRange(makeup);
             db.SaveChanges();
         }
+
+        public int generateID()
+        {
+            if(db == null)
+            {
+                return 1;
+            }
+            else
+            {
+                int newID = (from x in db.Makeups select x.MakeupID).ToList().LastOrDefault();
+                newID++;
+                return newID;
+            }
+        }
+
+        public void addMakeup(String name, int price, int weight, int typeID, int brandID)
+        {
+            int id = generateID();
+            Makeup makeup = MakeupFactory.Create(id, name, price, weight, typeID, brandID);
+            db.Makeups.Add(makeup);
+            db.SaveChanges();
+        }
+
+        public Makeup getMakeupByID(int id)
+        {
+            return (from x in db.Makeups where x.MakeupID == id select x).ToList().FirstOrDefault();
+        }
+
+        public void updateMakeup(int id, String name, int price, int weight, int typeID, int brandID)
+        {
+            Makeup makeup = getMakeupByID(id);
+            makeup.MakeupName = name;
+            makeup.MakeupPrice = price;
+            makeup.MakeupWeight = weight;
+            makeup.MakeupTypeID = typeID;
+            makeup.MakeupBrandID = brandID;
+            db.SaveChanges();
+        }
     }
 }

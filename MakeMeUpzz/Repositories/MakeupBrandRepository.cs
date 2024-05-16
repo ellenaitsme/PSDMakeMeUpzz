@@ -26,5 +26,10 @@ namespace MakeMeUpzz.Repositories
         {
             return db.MakeupBrands.ToList();
         }
+
+        public List<MakeupBrand> makeupBrandsDesc()
+        {
+            return db.MakeupBrands.OrderByDescending(rating => rating.MakeupBrandRating).ToList();
+        }
     }
 }

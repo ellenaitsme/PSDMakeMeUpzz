@@ -43,16 +43,9 @@ namespace MakeMeUpzz.Views
         public void refreshMakeupBrandGV()
         {
             MakeupBrandRepository brandRepo = new MakeupBrandRepository();
-            List<MakeupBrand> makeupBrands = brandRepo.GetMakeupBrands();
+            List<MakeupBrand> makeupBrands = brandRepo.makeupBrandsDesc();
             MakeupBrands.DataSource = makeupBrands;
             MakeupBrands.DataBind();
-        }
-
-        protected void MakeupBrands_Sorting(object sender, GridViewSortEventArgs e)
-        {
-            //masih blm bisa sortnya 
-            //MakeupBrands.Sort(MakeupBrands.Columns[2], ListSortDirection.Descending);
-            //MakeupBrands.SortDirection = SortDirection.Descending;
         }
 
         protected void MakeupBrands_RowEditing(object sender, GridViewEditEventArgs e)
@@ -108,17 +101,17 @@ namespace MakeMeUpzz.Views
 
         protected void InsertMakeup_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/View/InsertMakeupPage.aspx");
+            Response.Redirect("~/Views/InsertMakeupPage.aspx");
         }
 
         protected void InsertMakeupType_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/View/InsertMakeupTypePage.aspx");
+            Response.Redirect("~/Views/InsertMakeupTypePage.aspx");
         }
 
         protected void InsertMakeupBrand_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/View/InsertMakeupBrandPage.aspx");
+            Response.Redirect("~/Views/InsertMakeupBrandPage.aspx");
         }
     }
 }
